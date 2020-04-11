@@ -83,13 +83,13 @@ does exist".
 **Pembahasan**\
 
 #### 4a.
-```
+``` c
 int matrixA[4][2];
 int matrixb[2][5];
 int matrixc[4][5];
 ```
 - Pertama deklarasikan dulu matriks sesuai yang diinginkan soal.
-```
+``` c
 void* buat_kali(void* arg) {
   if(kolom >= 5){
     kolom = 0;
@@ -102,7 +102,7 @@ void* buat_kali(void* arg) {
 }
 ```
 - Rumuskan fungsi untuk perkalian matriks.
-```
+``` c
 srand(time(NULL));
   printf("Matrix A : \n");
   for (int i = 0; i < 4; i++) {
@@ -118,7 +118,7 @@ srand(time(NULL));
 - __srand(time(NULL));__ digunakan untuk mengenerate random number.
 - Lalu kita gunakan 2 perulangan untuk mengisi matriks A menggunakan __rand()%19+1__, random berfungsi untuk menghasilkan angka random dengan batas angka 1-20 ( __%19+1__).
 - Lakukan hal yang sama pada matriks B.
-```
+``` c
  pthread_t tid[20];
 
   for (int i = 0; i < 20; i++) {
@@ -134,7 +134,7 @@ srand(time(NULL));
 - Setelah itu kita deklarasikan thread.
 - Kita gunakan perulangan untuk menjalankan fungsi __pthread_create__ dengan syntax untuk menjalankan fungsi perkalian tadi.
 - Setelah itu kita lakukan __pthread_join()__ untuk masing - masing thread agar __main()__ tidak berhenti sebelum masing - masing thread selesai prosesnya.
-```
+``` c
 printf("Hasil kali A dan B :\n");
   for (int i = 0; i < 4; i++) {
     /* code */
