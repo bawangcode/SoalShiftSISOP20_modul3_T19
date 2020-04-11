@@ -306,7 +306,7 @@ DIR *folder, *folderopen;
  - Sama seperti case 2, tetapi disini akan memindahkan seluruh file yang ada dalam suatu path ke working directory. Maka yang di cek adalah argv[2] pada opendir karena disitu berisi nama path yang diketikkan pada terminal. 
  
  **Screenshot hasil :**\
-![]()
+![](soal3/soal3.png)
  
 # Nomor 4
 
