@@ -80,7 +80,7 @@ does exist".
 
 ##### Soal 4c : [shift4c](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/soal4c.c)
 
-**Pembahasan**\
+**Pembahasan**
 
 #### 4a.
 ``` c
@@ -146,6 +146,9 @@ printf("Hasil kali A dan B :\n");
   }
 ```
 - Setelah perkalian selesai maka kita tampilkan matriks C menggunakan perulangan.
+
+**Screenshot hasil :**\
+![](soal4a/soal4a.png)
 
 #### 4c.
 ``` c
