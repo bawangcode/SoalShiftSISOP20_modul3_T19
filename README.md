@@ -76,6 +76,75 @@ does exist".
 
 #### Link code soal 4 :
 
-##### Soal 4a : [shift4a](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/Soal4a.c)
+##### Soal 4a : [shift4a](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/soal4a.c)
 
-##### Soal 4c : [shift4c](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/Soal4c.c)
+##### Soal 4c : [shift4c](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/soal4c.c)
+
+**Pembahasan**\
+
+#### 4a.
+```
+int matrixA[4][2];
+int matrixb[2][5];
+int matrixc[4][5];
+```
+- Pertama deklarasikan dulu matriks sesuai yang diinginkan soal.
+```
+void* buat_kali(void* arg) {
+  if(kolom >= 5){
+    kolom = 0;
+    baris++;
+  }
+  for(int i = 0; i < 2;i++){
+    matrixc[baris][kolom] += matrixA[baris][i] * matrixb[i][kolom];
+  }
+  kolom++;
+}
+```
+- Rumuskan fungsi untuk perkalian matriks.
+```
+srand(time(NULL));
+  printf("Matrix A : \n");
+  for (int i = 0; i < 4; i++) {
+    /* code */
+    for (int j = 0; j < 2; j++) {
+      matrixA[i][j] = rand()%19+1;
+      printf("%2d", matrixA[i][j]);
+      /* code */
+    }
+    printf("\n");
+  }
+```
+- __srand(time(NULL));__ digunakan untuk mengenerate random number.
+- Lalu kita gunakan 2 perulangan untuk mengisi matriks A menggunakan __rand()%19+1__, random berfungsi untuk menghasilkan angka random dengan batas angka 1-20 ( __%19+1__).
+- Lakukan hal yang sama pada matriks B.
+```
+ pthread_t tid[20];
+
+  for (int i = 0; i < 20; i++) {
+    /* code */
+    pthread_create(&(tid[i]), NULL, &buat_kali, NULL);
+  }
+  
+  for (int i = 0; i < 20; i++) {
+    /* code */
+    pthread_join(tid[i], NULL);
+  }
+```
+- Setelah itu kita deklarasikan thread.
+- Kita gunakan perulangan untuk menjalankan fungsi __pthread_create__ dengan syntax untuk menjalankan fungsi perkalian tadi.
+- Setelah itu kita lakukan __pthread_join()__ untuk masing - masing thread agar __main()__ tidak berhenti sebelum masing - masing thread selesai prosesnya.
+```
+printf("Hasil kali A dan B :\n");
+  for (int i = 0; i < 4; i++) {
+    /* code */
+    for (int j = 0; j < 5; j++) {
+      printf("%4d", matrixc[i][j]);
+      /* code */
+    }
+    printf("\n");
+  }
+```
+- Setelah perkalian selesai maka kita tampilkan matriks C menggunakan perulangan.
+
+#### 4c.
