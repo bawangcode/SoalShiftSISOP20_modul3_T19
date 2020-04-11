@@ -148,7 +148,7 @@ printf("Hasil kali A dan B :\n");
 - Setelah perkalian selesai maka kita tampilkan matriks C menggunakan perulangan.
 
 **Screenshot hasil :**\
-![](soal4a/soal4a.png)
+![](soal4/soal4a.png)
 
 #### 4c.
 ``` c
@@ -181,3 +181,6 @@ if (pid == 0) {
 - Lalu untuk proses selanjutnya kita ambil output dari __ls__ dari pipe kita gunakan sebagai input untuk fungsi __wc__ yang akan dijalankan menggunakan __execv__.
 - Caranya adalah melakukan __dup2__ pada __deskriptor\[0]__ dan __0__. 0 disini adalah STDIN atau input. __deskriptor\[0]__ adalah lubang input dari pipe.
 - Setelah itu karena outputnya default ( STDOUT ) maka hasil dari dc akan ditampilkan pada terminal.
+
+**Screenshot hasil :**\
+![](soal4/soal4c.png)
