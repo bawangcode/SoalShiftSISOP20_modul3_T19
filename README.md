@@ -148,3 +148,33 @@ printf("Hasil kali A dan B :\n");
 - Setelah perkalian selesai maka kita tampilkan matriks C menggunakan perulangan.
 
 #### 4c.
+``` c
+int deskriptor[2];
+  pid_t pid;
+  pipe(deskriptor);
+```
+- Pertama - tama kita buat variabel array berdasarkan jumlah pipe yang kita perlukan,. dalam kasus ini karena kita hanya perlu 1 pipe maka __\[2]__ cukup. Lakukan fungsi pipe pada variabel tersebut.
+``` c
+if (pid == 0) {
+    dup2(deskriptor[1], 1);
+    close(deskriptor[0]);
+    close(deskriptor[1]);
+    char *argv[] = {"ls", NULL};
+    execv("/bin/ls", argv);
+    }
+```
+- Proses pertama, kita lakukan __ls__ menggunakan __execv()__. Agar output dari execv masuk dalam pipe kita gunakan fungsi __dup2__.
+- __dup2__ berfungsi untuk menyamakan isi dari 2 yang disebut, __deskriptor\[1]__ dan __1__. 1 disini adalah STDOUT ( output yang mengarah ke terminal ) sedangkan __deskriptor\[1]__ adalah lubang output dari pipe kita.
+- Maka hasil dari ls akan masuk ke dalam pipe.
+``` c
+if (pid == 0) {
+    dup2(deskriptor[0], 0);
+    close(deskriptor[0]);
+    close(deskriptor[1]);
+    char *argv[] = {"wc", "-l", NULL};
+    execv("/usr/bin/wc", argv);
+  }
+```
+- Lalu untuk proses selanjutnya kita ambil output dari __ls__ dari pipe kita gunakan sebagai input untuk fungsi __wc__ yang akan dijalankan menggunakan __execv__.
+- Caranya adalah melakukan __dup2__ pada __deskriptor\[0]__ dan __0__. 0 disini adalah STDIN atau input. __deskriptor\[0]__ adalah lubang input dari pipe.
+- Setelah itu karena outputnya default ( STDOUT ) maka hasil dari dc akan ditampilkan pada terminal.
