@@ -7,9 +7,116 @@
 
 # Nomor 1
 
+<p align="center">
+<img width="460" height="360" src="https://raw.githubusercontent.com/bawangcode/SoalShiftSISOP20_modul3_T19/master/soal1/pikachu.jpg">
+</p>
+
 # Nomor 2
 
+Qiqi adalah sahabat MamMam dan Kaka. Qiqi , Kaka dan MamMam sangat senang
+bermain “Rainbow six” bersama-sama , akan tetapi MamMam sangat Toxic ia selalu
+melakukan Team killing kepada Qiqi di setiap permainannya. Karena Qiqi orang yang
+baik hati, meskipun marah Qiqi selalu berkata “Aku nggk marah!!”. Kaka ingin
+meredam kemarahan Qiqi dengan membuatkannya sebuah game yaitu TapTap
+Game. akan tetapi Kaka tidak bisa membuatnya sendiri, ia butuh bantuan mu. Ayo!!
+Bantu Kaka menenangkan Qiqi.
+
+TapTap Game adalah game online berbasis text console. Terdapat 2 program yaitu
+tapserver.c dan tapplayer.c
+
+Syarat :
+- Menggunakan Socket, dan Thread
+
+Hint :
+- fwrite, fread
+
+Spesifikasi Game :
+
+<p align="center"><b>
+CLIENT SIDE
+</b></p>
+
+Screen 1 :
+1. Login
+2. Register\
+Choices : {your input}
+
+- Pada screen 1 kalian dapat menginputkan “login”, setelah menekan enter anda diminta untuk menginputkan username dan password seperti berikut
+
+Screen 1 :
+1. Login
+2. Register\
+Choices : login\
+Username : { ex : qiqi }\
+Password : { ex : aku nggak marah!! }
+
+- Jika login berhasil maka akan menampilkan pesan “login success”, jika gagal akan menampilkan pesan “login failed” (pengecekan login hanya mengecek username dan password, maka dapat multi autentikasi dengan username dan password yang sama)
+- Pada screen 1 kalian juga dapat menginputkan “register”, setelah menekan enter anda diminta untuk menginputkan username dan password sama halnya seperti login
+- Pada register tidak ada pengecekan unique username, maka setelah register akan langsung menampilkan pesan “register success” dan dapat terjadi double account
+- Setelah login berhasil maka anda berpindah ke screen 2 dimana menampilkan 2 fitur seperti berikut.
+
+Screen 2 :
+1. Find Match
+2. Logout\
+Choices : {your input}
+
+- Pada screen 2 anda dapat menginputkan “logout” setelah logout anda akan kembali ke screen 1
+- Pada screen 2 anda dapat menginputkan “find”, setelah itu akan menampilkan pesan “Waiting for player ...” print terus sampai menemukan lawan
+- Jika menemukan lawan maka akan menampilkan pesan “Game dimulai silahkan tap tap secepat mungkin !!”
+- Pada saat game dimulai diberikan variable health = 100,dan anda dapat men-tap (menekan space pada keyboard tanpa harus menekan enter)
+- Pada saat anda men-tap maka akan menampilkan pesan “hit !!”, dan pada lawan healthnya akan berkurang sebanyak 10 kemudian pada lawan menampilkan pesan status healthnya sekarang. (conclusion : anda tidak bisa melihat status health lawan)
+- Jika health anda <= 0 maka akan menampilkan pesan “Game berakhir kamu kalah”, apabila lawan anda healthnya <= 0 maka akan menampilkan pesan ”Game berakhir kamu menang”
+- Setelah menang atau kalah maka akan kembali ke screen 2
+
+<p align="center"><b>
+SERVER SIDE
+</b></p>
+
+- Pada saat program pertama kali dijalankan maka program akan membuat file akun.txt jika file tersebut tidak ada. File tersebut digunakan untuk menyimpan username dan password
+- Pada saat user berhasil login maka akan menampilkan pesan “Auth success” jika gagal “Auth Failed”
+- Pada saat user sukses meregister maka akan menampilkan List account yang terdaftar (username dan password harus terlihat)
+
 # Nomor 3
+
+Buatlah sebuah program dari C untuk mengkategorikan file. Program ini akan
+memindahkan file sesuai ekstensinya (tidak case sensitive. JPG dan jpg adalah
+sama) ke dalam folder sesuai ekstensinya yang folder hasilnya terdapat di working
+directory ketika program kategori tersebut dijalankan.
+- Semisal program dijalankan:
+```c
+  # File kategori terletak di /home/izone/kategori
+  $ ./kategori -f path/to/file1.jpg path/to/file2.c path/to/file3.zip
+  #Hasilnya adalah sebagai berikut
+  /home/izone
+  |-jpg
+  |--file1.jpg
+  |-c
+  |--file2.c
+  |-zip
+  |--file3.zi
+```
+- Pada opsi -f tersebut, user bisa menambahkan argumen file yang bisadikategorikan sebanyak yang user inginkan seperti contoh di atas.
+- Pada program kategori tersebut, folder jpg,c,zip tidak dibuat secara manual,melainkan melalui program c. Semisal ada file yang tidak memiliki ekstensi,maka dia akan disimpan dalam folder “Unknown”.
+- Program kategori ini juga menerima perintah (*) seperti di bawah;
+```c
+  $ ./kategori \*
+```
+- Artinya mengkategori seluruh file yang ada di working directory ketika menjalankan program C tersebut.
+- Selain hal itu program C ini juga menerima opsi -d untuk melakukan kategori pada suatu directory. Untuk opsi -d ini, user hanya bisa menginput 1 directory saja, tidak seperti file yang bebas menginput file sebanyak mungkin.
+```c
+  $ ./kategori -d /path/to/directory/
+```
+ - Hasilnya perintah di atas adalah mengkategorikan file di /path/to/directory dan hasilnya akan disimpan di working directory di mana program C tersebut berjalan (hasil kategori filenya bukan di /path/to/directory).
+- Program ini tidak rekursif. Semisal di directory yang mau dikategorikan, atau menggunakan (*) terdapat folder yang berisi file, maka file dalam folder tersebut tidak dihiraukan, cukup file pada 1 level saja.
+- Setiap 1 file yang dikategorikan dioperasikan oleh 1 thread agar bisa berjalan secara paralel sehingga proses kategori bisa berjalan lebih cepat. Dilarang juga menggunakan fork-exec dan system.
+- Silahkan download soal3.zip sebagai percobaan. Namun silahkan dicoba-coba sendiri untuk kemungkinan test case lainnya yang mungkin belum ada di soal3.zip.
+
+#### Link code soal 3 :
+
+##### Soal 3 : [Soal 3](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal3/soal3.c)
+
+**Pembahasan**
+
 
 # Nomor 4
 
@@ -184,3 +291,11 @@ if (pid == 0) {
 
 **Screenshot hasil :**\
 ![](soal4/soal4c.png)
+
+# Kesulitan/Kendala yang Dialami
+1. Kami masih menyesuaikan diri dengan sistem operasi LINUX/Ubuntu sehingga ada beberapa kendala dalam menggunakan terminal.
+2. Soal sangat jauh diatas kemampuan kami terutama nomor 1.
+3. Banyak command baru yang kami belum pernah dengar maupun gunakan sebelumnya.
+4. Kami belum memahami dengan penuh yang diberikan pada modul 3. Karena sesi lab nya juga online, dan terkadang share screen nya buram, sehingga sulit dibaca apalagi dimengerti
+5. Karena keadaan yang WFH, kami sulit untuk berdiskusi atau mengerjakan bersama. Selain itu kami biasa mengerjakan di lab karena laptop kami memang agak bermasalah, sedangkan kondisi sekarang adalah WFH sehingga mau tidak mau kami harus mengerjakan di rumah.
+6. Salah satu anggota tidak memiliki laptop (sedang diservis), dan yang satunya lagi laptopnya agak bermasalah di SSD nya, sehingga sulit sekali untuk menyelesaikan modul ini.
