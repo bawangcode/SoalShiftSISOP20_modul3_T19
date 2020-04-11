@@ -74,6 +74,8 @@ Sebelum menghilang, dia menyisakan semua petunjuk tentang harta karun tersebut
 melalui tulisan dalam buku catatannya yang tersebar di penjuru dunia. "One Piece
 does exist".
 
+#### Link code soal 4 :
 
+##### Soal 4a : [shift4a](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/Soal4a.c)
 
-
+##### Soal 4c : [shift4c](https://github.com/bawangcode/SoalShiftSISOP20_modul3_T19/blob/master/soal4/Soal4c.c)
